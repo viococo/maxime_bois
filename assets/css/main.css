@@ -126,7 +126,7 @@
         font-weight: 400;
         font-size: 2.188rem
     }
-    #fullpage .col2 {
+    #fullpage .col2, #fullpage .col2 .bgi {
         height: 100%;
     }
     #fullpage .txtArea{
