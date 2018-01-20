@@ -7,7 +7,7 @@
     <title><?= $title ?></title>
     <meta name="description" content="<?= $description ?>" />
 
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Work+Sans:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Work+Sans:300,700" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/libs/reset.css">
     <?php foreach ($libscss as $file) {

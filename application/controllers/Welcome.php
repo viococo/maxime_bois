@@ -17,7 +17,7 @@ class Welcome extends CI_Controller {
 			'jQuery' => true,
 			'menu' => [
 				'visible' => true,
-				'color' => 'light',
+				'color' => 'lightRight',
 			],
 			'page' => 'home',
 			'footer' => false,			
