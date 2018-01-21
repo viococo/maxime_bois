@@ -138,8 +138,9 @@
         padding: 100px 0;
         padding-right: 50px;
         position: relative;
+        transition: .3s
     }
-    .project .txtArea::after{
+    .project.txtArea::after{
         content:'';
         position: absolute;
         height: 100%;
@@ -147,6 +148,9 @@
         background-color: #fff;
         top: 0;
         right: -100px;
+        z-index: 1;
+        transition:.3s
+        
     }
     .project a{
         display: inline-block;
@@ -156,10 +160,11 @@
         right: -100px;
         background-color: #82b1ff;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
         line-height: 100px;
         text-align: center;
-        color: #fff
+        color: #fff;
+        transition:.3s
     }
     .project a:hover i {
         padding-left: 20px;
