@@ -1,5 +1,6 @@
-var project_txt = $('[data-project]')
+var project_txt = $('.txtArea > div')
 project_txt.fadeOut(0)
+$(project_txt[0]).fadeIn()
 
 $(document).ready(function() {
 	$('#fullpage .img').fullpage({
@@ -8,9 +9,10 @@ $(document).ready(function() {
 			var leavingSection = $(this);
 			var id = nextIndex - 1
 			var nextSection = $(project_txt[id])
+			
 			project_txt.fadeOut(300)
+
 			setTimeout(function(){
-				console.log(id)
 				if(id > 0)
 					$('.txtArea').addClass('project')
 				else

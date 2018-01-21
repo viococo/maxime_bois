@@ -1,57 +1,29 @@
-
-
 <main id="fullpage">
-    <div class="col2">
-        <div class="txtArea middle">
-            <div data-project="1"> 
-                <h1>
-                    Hi, my name is Maxime,<br>
-                    I’m a UX Designer
-                </h1>
-            </div>
-            <div data-project="2"> 
-                <h3>UX/UI Design</h3>
-                <h2> Obataimu</h2>
-                <p>
-                    Obataimu is a clothing brand 
-                    mixing Japanese art and Indian 
-                    know-how.
-                </p>
-                <a href="<?php base_url() ?>">
-                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div><span class="vmiddle"></span>
-    </div><div class="col2 img">
-        <div class="bgi section" style="background-image: url(<?= base_url('assets/img/home.jpg') ?>)"></div>
-        <div class="bgi section" style="background-image: url(<?= base_url('assets/img/obataimu.jpg') ?>)"></div>
-    </div>
-    <!--<section class="section">
-        <div class="col2">
-            <div class="txtArea middle">
-                <h1>
-                    Hi, my name is Maxime,<br>
-                    I’m a UX Designer
-                </h1>
-            </div><span class="vmiddle"></span>
-        </div><div class="bgi col2" style="background-image: url(<?= base_url('assets/img/home.jpg') ?>)"></div>
-    </section>
-    <?php for ($i = 0; $i<4 ; $i++) { ?>
-    <section class="section project">
-    <div class="col2">
-        <div class="txtArea middle">
-            <h3>UX/UI Design</h3>
-            <h2> Obataimu</h2>
-            <p>
-                Obataimu is a clothing brand 
-                mixing Japanese art and Indian 
-                know-how.
-            </p>
-            <a href="<?php base_url() ?>">
-                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-            </a>
-        </div><span class="vmiddle"></span>
-    </div><div class="bgi col2" style="background-image: url(<?= base_url('assets/img/obataimu.jpg') ?>)"></div>
-    </section>
-    <?php } ?> -->
+	<div class="col2">
+		<div class="txtArea middle">
+			<a href="<?= base_url('index.php/welcome/project/1') ?>">
+					<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
+			<div> 
+				<h1>
+					Hi, my name is Maxime,<br>
+					I’m a UX Designer
+				</h1>
+			</div>
+			<?php foreach ($projects as $project){ ?>
+				<div> 
+					<h3><?= $project->speciality ?></h3>
+					<h2><?= $project->name ?></h2>
+					<p>
+						<?= $project->texte_home ?>
+					</p>
+				</div>
+			<?php } ?>
+		</div><span class="vmiddle"></span>
+	</div><div class="col2 img">
+		<div class="bgi section" style="background-image: url(<?= base_url('assets/img/home.jpg') ?>)"></div>
+		<?php foreach ($projects as $project){ ?>
+			<div class="bgi section" style="background-image: url(<?= base_url('assets/img/'.$project->image_home) ?>)"></div>
+		<?php } ?>
+	</div>
 </main>

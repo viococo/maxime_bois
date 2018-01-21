@@ -5,7 +5,7 @@ if (isset($menu) && $menu['visible'])
     $this->load->view('commons/menu', $menu);
 echo "\n";
     
-$this->load->view($page.'-view');
+$this->load->view($page.'-view', $data);
 echo "\n";
 
 if (isset($footer) && $footer)
