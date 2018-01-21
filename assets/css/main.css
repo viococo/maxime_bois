@@ -220,14 +220,31 @@ body {
 		position: absolute;
 		bottom: 0;
 		left: 50%;
-		transform: translateX(-50%)
+		transform: translateX(-50%);
+		padding-bottom: 10px
 	}
 	header p{
 		color: #9e9e9e
 	}
+	header p i{
+		display: inline-block;
+		margin-left:30px;
+		margin-right:15px;
+	}
+	header p i:first-of-type{
+		margin-left: 0;
+	}
+	header p i:last-of-type{
+		margin-right: 0;
+	}
 	main {
 		background-color: #fafafa;
+		padding-bottom: 100px
 	}
 	main.project p {
 		margin: 10px auto;
+	}
+	main .txtHeader {
+		margin-bottom: 100px;
+		padding-top: 10px
 	}
