@@ -56,12 +56,11 @@ body {
 	}
 	nav.light {
 		color: #fff;
-		fill: #fff;		
 	}
 	nav.lightRight {
 		color: #fff;
 	}
-	nav.lightLeft svg{
+	nav.lightLeft svg, nav.light svg{
 		fill: #fff;
 	}
 	nav li a{
