@@ -32,7 +32,8 @@ class Welcome extends CI_Controller {
 	
 	public function project($id)
 	{
-		if(isset($id) && !empty($id)){
+		//var_dump ( gettype($id));
+		if(isset($id) && !empty($id) ){
 			$data['data']['project'] = $this->project->recup(array(
 				'table' => 'projects',
 				'id' => $id,
