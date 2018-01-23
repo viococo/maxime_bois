@@ -54,17 +54,34 @@ body {
 	nav svg {
 		width: 88px;
 	}
-	nav.light {
-		color: #fff;
-	}
-	nav.lightRight {
+    nav.light
+    , nav.lightRight {
 		color: #fff;
 	}
 	nav.lightLeft svg, nav.light svg{
 		fill: #fff;
 	}
 	nav li a{
-		padding: 10px;
+		padding: 10px 30px;
+		position: relative;
+	}
+	nav.light li a:after
+	, nav.lightRight li a:after{
+		background-color: #fff;
+	}
+	nav li a:after{
+		content: '';
+		height: 1px;
+		width: 0;
+		bottom: 8px;
+		left: 50%;
+		background-color: #000;
+		transition: .3s;
+		position: absolute;
+	}
+	nav li a:hover:after{
+		left: 30px;
+		width: calc(100% - 60px);
 	}
 	#rs.lightLeft {
 		color: #fff
@@ -122,11 +139,49 @@ body {
 		top: 0;
 		left: 0;
 	}
-	#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span, #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
+	#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
 		height: 10px;
 		width: 10px;
 		margin: 0;
 		background: #fff;
+	}
+	#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span
+	{
+		height: 10px;
+		width: 10px;
+		margin: 0;
+	}
+	#fp-nav ul li:hover a span:after, .fp-slidesNav ul li:hover a span:after, #fp-nav ul li:hover a.active span:after, .fp-slidesNav ul li:hover a.active span:after
+	{
+		width: 10px;
+	}
+	#fp-nav ul li a span:after, .fp-slidesNav ul li a span:after, #fp-nav ul li a.active span:after, .fp-slidesNav ul li a.active span:after
+	{
+		content: '';
+		position: absolute;
+		background-color: #fff;
+		height: 2px;
+		width: 0;
+		right: 100%;
+		top: 2px;
+		transition: .3s
+	}
+	#fp-nav ul li .fp-tooltip{
+		width: auto;
+    opacity: 0;
+		top: -7px;
+		transform: translateX(-20px);
+		transition: .3s;
+	font-family: 'Playfair Display', serif;
+	}
+	#fp-nav ul li .fp-tooltip.right{
+		right: 30px;
+	}
+	#fp-nav ul li:hover .fp-tooltip{
+    opacity: 1;
+		transform: translateX(0);
+		transition: .3s
+		
 	}
 	h1{
 		font-weight: 400;
@@ -158,10 +213,10 @@ body {
 		z-index: 1;
 		transition:.3s 
 	}
-	.txtArea a{
+	.txtArea span{
 		opacity: 0;
 	}
-	.project a{
+	.project.txtArea span{
 		opacity: 1;
 		display: inline-block;
 		height: 100px;
@@ -176,11 +231,20 @@ body {
 		color: #fff;
 		transition:.3s
 	}
-	.project a:hover i {
+	.project span:hover i {
 		padding-left: 20px;
 	}
-	.project a i {
+	.project span i {
 		transition: .3s;
+	}
+	.project a{
+		position: absolute;
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		bottom: 0;
+		right: -100px;
+		z-index: 3;
 	}
 	h3{
 		font-size: 65px;

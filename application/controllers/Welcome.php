@@ -7,7 +7,7 @@ class Welcome extends CI_Controller {
 	{
 		$data['data']['projects'] = $this->project->recup(array(
 			'table' => 'projects',
-			'select' => 'image_home, texte_home, name, speciality',
+			'select' => 'image_home, texte_home, name, speciality, id_project',
 		));
 		$data += [
 			'header' => [

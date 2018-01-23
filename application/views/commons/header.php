@@ -7,7 +7,9 @@
     <title><?= $title ?></title>
     <meta name="description" content="<?= $description ?>" />
 
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Work+Sans:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,600" rel="stylesheet">
 
     <link rel="stylesheet" href="<?= base_url('assets/css/libs/reset.css') ?>">
     <?php if(isset($libscss) && !empty($libscss)){

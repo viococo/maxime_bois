@@ -1,9 +1,9 @@
 <main id="fullpage">
 	<div class="col2">
 		<div class="txtArea middle">
-			<a href="<?= base_url('index.php/welcome/project/1') ?>">
-					<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-			</a>
+			<span>
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</span>
 			<div> 
 				<h1>
 					Hi, my name is Maxime,<br>
@@ -17,6 +17,7 @@
 					<p>
 						<?= $project->texte_home ?>
 					</p>
+					<a href="<?= base_url('index.php/welcome/project/'.$project->id_project) ?>"></a>
 				</div>
 			<?php } ?>
 		</div><span class="vmiddle"></span>
@@ -25,5 +26,6 @@
 		<?php foreach ($projects as $project){ ?>
 			<div class="bgi section" style="background-image: url(<?= base_url('assets/img/'.$project->image_home) ?>)"></div>
 		<?php } ?>
+		<div id="menu"></div>
 	</div>
 </main>
