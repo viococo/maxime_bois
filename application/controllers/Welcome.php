@@ -7,7 +7,7 @@ class Welcome extends CI_Controller {
 	{
 		$data['data']['projects'] = $this->project->recup(array(
 			'table' => 'projects',
-			'select' => 'image_home, texte_home, name, speciality, id_project',
+			'select' => 'image_home, texte_home, name, speciality, id',
 		));
 		$data += [
 			'header' => [
@@ -32,12 +32,13 @@ class Welcome extends CI_Controller {
 	
 	public function project($id)
 	{
-		//var_dump ( gettype($id));
-		if(isset($id) && !empty($id) ){
+		if(isset($id) && !empty($id) && is_numeric($id)){
 			$data['data']['project'] = $this->project->recup(array(
 				'table' => 'projects',
 				'id' => $id,
+				'join' => ['items'],
 			));
+		//	var_dump($data['data']['project']);
 
 			if (empty($data['data']['project']))
 				redirect();

@@ -10,20 +10,20 @@
 					I’m a UX Designer
 				</h1>
 			</div>
-			<?php foreach ($projects as $project){ ?>
+			<?php foreach ($projects['object'] as $project){ ?>
 				<div> 
 					<h3><?= $project->speciality ?></h3>
 					<h2><?= $project->name ?></h2>
 					<p>
 						<?= $project->texte_home ?>
 					</p>
-					<a href="<?= base_url('index.php/welcome/project/'.$project->id_project) ?>"></a>
+					<a href="<?= base_url('index.php/welcome/project/'.$project->id) ?>"></a>
 				</div>
 			<?php } ?>
 		</div><span class="vmiddle"></span>
 	</div><div class="col2 img">
 		<div class="bgi section" style="background-image: url(<?= base_url('assets/img/home.jpg') ?>)"></div>
-		<?php foreach ($projects as $project){ ?>
+		<?php foreach ($projects['object'] as $project){ ?>
 			<div class="bgi section" style="background-image: url(<?= base_url('assets/img/'.$project->image_home) ?>)"></div>
 		<?php } ?>
 		<div id="menu"></div>

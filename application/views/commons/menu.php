@@ -3,7 +3,7 @@
         <a href="<?= base_url() ?>"><?php include('assets/svg/logo.svg')?></a>
     </div>
     <ul>
-        <li><a href="<?= base_url('Welcome') ?>"> Works</a></li>
+        <li><a href="<?= base_url('Welcome/project/1') ?>"> Works</a></li>
         <li><a href="<?= base_url('Welcome') ?>"> About</a></li>
     </ul>
 </nav>

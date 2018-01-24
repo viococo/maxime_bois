@@ -1,4 +1,8 @@
 /* COMMONS */
+@font-face{
+	font-family: 'si';
+	src: url('../fonts/Simple-Line-Icons.ttf')
+}
 h1
 , h2
 , h3
@@ -29,6 +33,7 @@ body {
 .bold {
 	font-weight: 600;
 }
+img{max-width: 100%}
 
 /* MENU */
 	nav {
@@ -265,10 +270,10 @@ body {
 	}
 /* PROJECT */
 	header{
-		height: 100%;
+		height: 80%;
 		position: relative
 	}
-	header h1{
+	main.project h1{
 		font-size: 60px
 	}
 	.txtHeader{
@@ -277,37 +282,52 @@ body {
 		max-width: 90%;
 		margin: 0 auto;
 		padding: 40px 7%;
-		line-height: 1.7
+		line-height: 1.7;
+		margin-top: -200px;
+		position: relative;
+		z-index: 1
 	}
-	header .txtHeader {
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		padding-bottom: 10px
+	main.project p:first-of-type{
+		color: #9e9e9e;
+		margin-bottom: 40px;
 	}
-	header p{
-		color: #9e9e9e
-	}
-	header p i{
+	main.project p:first-of-type i{
 		display: inline-block;
 		margin-left:30px;
-		margin-right:15px;
+		margin-right:10px;
+		font-family: 'si';
+		font-size: 18px;
+		font-style: normal;
 	}
-	header p i:first-of-type{
-		margin-left: 0;
-	}
-	header p i:last-of-type{
-		margin-right: 0;
+	main.project p:first-of-type span, .project i {
+		display: inline-block;
+		vertical-align: middle;
 	}
 	main.project {
 		background-color: #fafafa;
 		padding-bottom: 100px
+	}
+	main.project p i:first-of-type{
+		margin-left: 0;
 	}
 	main.project p {
 		margin: 10px auto;
 	}
 	main .txtHeader {
 		margin-bottom: 100px;
-		padding-top: 10px
+	}
+	main.project h2{
+		font-size: 30px
+	}
+	i.si.people:before{
+		content:"\e001";
+	}
+	i.si.book:before{
+		content:"\e04c";
+	}
+	i.si.calendar:before{
+		content:"\e075";
+	}
+	i.si.case:before{
+		content:"\e04b";
 	}
