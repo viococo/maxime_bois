@@ -8,6 +8,7 @@ class Project  extends CI_Controller
 		$this->load->database(); 
 	}
 	public function recup($tab){
+		var_dump($tab);
 		$sql = '';
 
 		if(isset($tab['select']) && !empty($tab['select']))
@@ -19,15 +20,21 @@ class Project  extends CI_Controller
 
 		if(isset($tab['id']) && !empty($tab['id']))
 			$sql .= ' WHERE '.$tab['table'].'.id = '.$tab['id'];
+			
 
-		$result['object'] = $this->db->query($sql)->result();
+		if(isset($tab['where']) && !empty($tab['where']))
+			$sql .= ' WHERE '.$tab['table'].'.id_'.$tab['where'].' = '.$tab['where'].'.id';
 
-		if(isset($tab['join']) && !empty($tab['join'])){
-			foreach($tab['join'] as $table_join){
-				$sql = ' SELECT * FROM '.$table_join.' WHERE '.$table_join.'.id_'.$tab['table'].' = '.$tab['id'];
-				$result['join'][$table_join] = $this->db->query($sql)->result();
+		foreach ($this->db->query($sql)->result() as $k => $v) {
+			$result[$k]['object'] = $v;
+			if(isset($tab['join']) && !empty($tab['join'])){
+				foreach($tab['join'] as $value){
+					$result[$k]['join'][$value['table']] = $this->recup($value);
+				}
 			}
 		}
+
+		
 		return $result;
 	} 
 }

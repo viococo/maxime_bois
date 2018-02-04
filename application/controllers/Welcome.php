@@ -36,9 +36,24 @@ class Welcome extends CI_Controller {
 			$data['data']['project'] = $this->project->recup(array(
 				'table' => 'projects',
 				'id' => $id,
-				'join' => ['items'],
+				'join' => [
+					0 => [
+						'table' => 'items',
+						'where' => 'projects',
+					], 
+					1 => [
+						'table' => 'sections',
+						'where' => 'projects',
+						'join' => [
+							0 => [
+								'table' => 'content',
+								'where' => 'sections',
+							],
+						],
+					],
+				],
 			));
-		//	var_dump($data['data']['project']);
+			var_dump($data['data']['project'][0]['join']['sections'][0]['join']['content']);
 
 			if (empty($data['data']['project']))
 				redirect();
@@ -61,7 +76,7 @@ class Welcome extends CI_Controller {
 				'page' => 'project',
 				'footer' => false,			
 			];
-			$this->load->view('template/t_standard', $data);
+			// $this->load->view('template/t_standard', $data);
 		} else {
 			redirect();
 		}
