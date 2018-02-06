@@ -1,9 +1,11 @@
-<?php $p = $project['object'][0] ?>
+<?php 
+	$p = $project[0]['object'];
+?>
 
 <header class="bgi" style="background-image: url(<?= base_url('assets/img/'.$p->image_header) ?>)">
 </header>
 <main class="project">
-    <div class="txtHeader">
+    <section class="txtHeader">
 		<h1><?= $p->name ?></h1>
 		<p>
 			<i class="si case"></i><span> <?= $p->speciality ?> </span>
@@ -23,14 +25,37 @@
 			echo '<p><span class="bold">Our strenghts : </span></br>'.$p->strengths.'</p>';
 		if(isset($p->result) && !empty($project->result))
 			echo '<p><span class="bold">Result of the challenge : </span>'.$p->result.'</p>';
-		if( isset($project['join']['items']) && $project['join']['items']){ 
-			foreach($project['join']['items'] as $item) { ?><div class="col2">
-			<h2><?= $item->title ?></h2>
-			<span><img src="<?= base_url('assets/img/'.$item->image) ?>" alt="<?= $item->title ?>"></span>
+		if( isset($j['items']) && $j['items']){ 
+			foreach($j['items'] as $item) { ?><div class="col2">
+			<h2><?= $item['object']->title ?></h2>
+			<span><img src="<?= base_url('assets/img/'.$item['object']->image) ?>" alt="<?= $item['object']->title ?>"></span>
 		</div><?php }} ?>
         
-    </div>
+	</section>
+	<?php 
+	if ( isset($project[0]['join']) && !empty($project[0]['join']) )
+		$j = $project[0]['join'] ;
+	
+	if ( isset($j['sections']) && !empty($j['sections']) ){
+		
+		foreach( $j['sections'] as $s ){ ?>
+			<section>
+				<h2><?= $s['object']->name ?></h2>
+				
+				<?php  foreach ($s['join']['content'] as $sJoin ) {
+					echo '<pre>';
+					var_dump($sJoin['object']->file) ;
+					echo '</pre>';
+				} ?>
+
+			</section>
+		<?php }
+	} ?>
 </main>
-<?php // var_dump($project['join']['items']) ?>
+<?php  
+echo '<pre>';
+var_dump($j['sections']) ;
+echo '</pre>';
+?>
 
 <?php // var_dump($project) ?>
