@@ -205,6 +205,22 @@ img{max-width: 100%}
 		width: 60%;
 		transition: .3s;
 	}
+	#fullpage.about .txtArea {
+		margin-left: -100px;
+		font-size: 16px;
+		padding: 100px 0;
+		padding-left: 100px;
+		position: relative;
+		width: 90%;
+		transition: .3s;
+		background-color: #fff;
+		max-height: 90%;
+		overflow: auto;
+	}
+	
+	#fullpage.about .txtArea::after{
+		content:none;
+	}
 	.project.txtArea::after{
 		background-color: #fff;
 	}
@@ -220,6 +236,9 @@ img{max-width: 100%}
 	}
 	.txtArea span{
 		opacity: 0;
+	}
+	.about span{
+		opacity: 1;
 	}
 	.project.txtArea span{
 		opacity: 1;
@@ -329,6 +348,12 @@ img{max-width: 100%}
 		max-width: 80%;
 		margin: 0 auto;
 		text-align: left;
+	}
+	main.project img{
+		width: 1000px
+	}
+	main.project .mobile img{
+		width: calc(1000px / 3)
 	}
 	i.si.people:before{
 		content:"\e001";

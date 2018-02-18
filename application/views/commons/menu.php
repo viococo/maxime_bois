@@ -4,7 +4,7 @@
     </div>
     <ul>
         <li><a href="<?= base_url('Welcome/project/1') ?>"> Works</a></li>
-        <li><a href="<?= base_url('Welcome') ?>"> About</a></li>
+        <li><a href="<?= base_url('About') ?>"> About</a></li>
     </ul>
 </nav>
 <?php if(isset($rs) && $rs) { ?>

@@ -17,7 +17,7 @@
 					<p>
 						<?= $project['object']->texte_home ?>
 					</p>
-					<a href="<?= base_url('index.php/welcome/project/'.$project['object']->id) ?>"></a>
+					<a href="<?= base_url('welcome/project/'.$project['object']->id) ?>"></a>
 				</div>
 			<?php } ?>
 		</div><span class="vmiddle"></span>
