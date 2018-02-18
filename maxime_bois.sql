@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 18 fév. 2018 à 11:38
--- Version du serveur :  5.7.19
--- Version de PHP :  7.1.9
+-- Client :  127.0.0.1
+-- Généré le :  Dim 18 Février 2018 à 19:43
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,16 +26,14 @@ SET time_zone = "+00:00";
 -- Structure de la table `content`
 --
 
-DROP TABLE IF EXISTS `content`;
-CREATE TABLE IF NOT EXISTS `content` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `content` (
+  `id` int(11) NOT NULL,
   `id_sections` int(11) NOT NULL,
-  `file` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+  `file` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `content`
+-- Contenu de la table `content`
 --
 
 INSERT INTO `content` (`id`, `id_sections`, `file`) VALUES
@@ -67,17 +63,15 @@ INSERT INTO `content` (`id`, `id_sections`, `file`) VALUES
 -- Structure de la table `items`
 --
 
-DROP TABLE IF EXISTS `items`;
-CREATE TABLE IF NOT EXISTS `items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL,
   `id_projects` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `image` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `items`
+-- Contenu de la table `items`
 --
 
 INSERT INTO `items` (`id`, `id_projects`, `title`, `image`) VALUES
@@ -92,9 +86,8 @@ INSERT INTO `items` (`id`, `id_projects`, `title`, `image`) VALUES
 -- Structure de la table `projects`
 --
 
-DROP TABLE IF EXISTS `projects`;
-CREATE TABLE IF NOT EXISTS `projects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `projects` (
+  `id` int(11) NOT NULL,
   `image_home` varchar(255) NOT NULL,
   `texte_home` text NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -107,12 +100,11 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `problematics` text NOT NULL,
   `solutions` text NOT NULL,
   `strengths` text NOT NULL,
-  `result` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `result` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `projects`
+-- Contenu de la table `projects`
 --
 
 INSERT INTO `projects` (`id`, `image_home`, `texte_home`, `name`, `image_header`, `speciality`, `context`, `solo`, `year`, `goals`, `problematics`, `solutions`, `strengths`, `result`) VALUES
@@ -125,27 +117,77 @@ INSERT INTO `projects` (`id`, `image_home`, `texte_home`, `name`, `image_header`
 -- Structure de la table `sections`
 --
 
-DROP TABLE IF EXISTS `sections`;
-CREATE TABLE IF NOT EXISTS `sections` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
   `id_projects` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `format` varchar(255) NOT NULL DEFAULT 'desktop'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `sections`
+-- Contenu de la table `sections`
 --
 
-INSERT INTO `sections` (`id`, `id_projects`, `name`) VALUES
-(1, 1, 'Home Page'),
-(2, 1, 'Interactive experience'),
-(3, 1, 'Page concept'),
-(4, 2, 'Motion design'),
-(5, 2, 'Home page'),
-(6, 2, 'Mobile');
-COMMIT;
+INSERT INTO `sections` (`id`, `id_projects`, `name`, `format`) VALUES
+(1, 1, 'Home Page', 'desktop'),
+(2, 1, 'Interactive experience', 'desktop'),
+(3, 1, 'Page concept', 'desktop'),
+(4, 2, 'Motion design', 'desktop'),
+(5, 2, 'Home page', 'desktop'),
+(6, 2, 'Mobile', 'mobile');
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `content`
+--
+ALTER TABLE `content`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `content`
+--
+ALTER TABLE `content`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT pour la table `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT pour la table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
