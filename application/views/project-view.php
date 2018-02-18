@@ -25,8 +25,8 @@
 			echo '<p><span class="bold">Our strenghts : </span></br>'.$p->strengths.'</p>';
 		if(isset($p->result) && !empty($project->result))
 			echo '<p><span class="bold">Result of the challenge : </span>'.$p->result.'</p>';
-		if( isset($j['items']) && $j['items']){ 
-			foreach($j['items'] as $item) { ?><div class="col2">
+		if( isset($project[0]['join']['items']) && $project[0]['join']['items']){ 
+			foreach($project[0]['join']['items'] as $item) { ?><div class="col2">
 			<h2><?= $item['object']->title ?></h2>
 			<span><img src="<?= base_url('assets/img/'.$item['object']->image) ?>" alt="<?= $item['object']->title ?>"></span>
 		</div><?php }} ?>
@@ -41,12 +41,11 @@
 		foreach( $j['sections'] as $s ){ ?>
 			<section>
 				<h2><?= $s['object']->name ?></h2>
-				
-				<?php  foreach ($s['join']['content'] as $sJoin ) {
-					echo '<pre>';
-					var_dump($sJoin['object']->file) ;
-					echo '</pre>';
-				} ?>
+				<?php  foreach ($s['join']['content'] as $sJoin ) { ?>
+					<div>
+						<img src="<?= base_url('assets/img/'.$sJoin['object']->file) ?>" alt="<?= '' ?>">
+					</div>
+				<?php } ?>
 
 			</section>
 		<?php }
@@ -54,7 +53,7 @@
 </main>
 <?php  
 echo '<pre>';
-var_dump($j['sections']) ;
+//var_dump() ;
 echo '</pre>';
 ?>
 
