@@ -208,14 +208,16 @@ img{max-width: 100%}
 	#fullpage.about .txtArea {
 		margin-left: -100px;
 		font-size: 16px;
-		padding: 100px 0;
-		padding-left: 100px;
+		padding: 0 100px;
 		position: relative;
-		width: 90%;
+		width: calc(100% + 100px);
 		transition: .3s;
 		background-color: #fff;
 		max-height: 90%;
 		overflow: auto;
+	}
+	#fullpage.about .txtArea > div {
+		margin: 100px 0
 	}
 	
 	#fullpage.about .txtArea::after{
@@ -364,6 +366,26 @@ img{max-width: 100%}
 	i.si.calendar:before{
 		content:"\e075";
 	}
+
 	i.si.case:before{
 		content:"\e04b";
+	}
+
+	@media screen and (max-width: 750px){
+		.col2{
+			width: 100%
+		}
+		#fullpage .col2:first-of-type{
+			height: 40%;
+		}
+		#fullpage .col2:last-of-type{
+			height: auto;
+		}
+		#fullpage .col2:last-of-type .txtArea{
+			padding: 0 5%;
+			margin-left: 5%;
+			margin-top: -50px;
+			width: 90%;
+			max-height: none;
+		}
 	}
