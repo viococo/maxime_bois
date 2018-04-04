@@ -9,6 +9,7 @@ h1
 , h4
 , h5
 , nav
+, .h2
 {
 	font-family: 'Playfair Display', serif;
 }
@@ -132,6 +133,9 @@ img{max-width: 100%}
 	}    
 
 /* HOME SECTIONS */
+.h2{
+	font-size: 30px
+}
 	main#fullpage, #fullpage section {
 		height: 100%
 	}
@@ -274,10 +278,9 @@ img{max-width: 100%}
 	}
 	h3{
 		font-size: 65px;
-    margin-left: -70px;
-    opacity: .04;
-    position: absolute;
-    top: 75px;
+	    opacity: .04;
+    	position: absolute;
+    	top: 75px;
 		font-size: 65px;
 		margin-left: -70px;
 		opacity: .04;
@@ -288,6 +291,8 @@ img{max-width: 100%}
 		font-size: 45px;
 		position: relative;
 		z-index: 2;
+		line-height: 50px;
+		margin: 15px 0;
 	}
 /* PROJECT */
 	header{
@@ -372,6 +377,16 @@ img{max-width: 100%}
 	}
 
 	@media screen and (max-width: 750px){
+		h3{
+			font-size: 35px;
+			margin-left: 0;
+			top: 15px;
+		}
+		h2, .h2{
+			margin: 25px;
+			font-size: 26px;
+			line-height: 30px;
+		}
 		.col2{
 			width: 100%
 		}
@@ -380,12 +395,36 @@ img{max-width: 100%}
 		}
 		#fullpage .col2:last-of-type{
 			height: auto;
+			position: relative;
+			min-height: 60%;
 		}
 		#fullpage .col2:last-of-type .txtArea{
-			padding: 0 5%;
-			margin-left: 5%;
+			padding: 0 25px;
+			margin: 15px;
 			margin-top: -50px;
-			width: 90%;
+			width: calc(100% - 30px);
 			max-height: none;
+		}
+
+		#fullpage.about .txtArea > div{
+			margin : 30px 0
+		}
+		#rs{
+			display: none;
+		}
+
+		.col2.img::before {
+
+			content: '';
+			position: absolute;
+			bottom: 0;
+			height: 200px;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#373737+0,373737+100&0+0,1+100 */
+background: -moz-linear-gradient(top, rgba(55,55,55,0) 0%, rgba(55,55,55,.55) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(55,55,55,0) 0%,rgba(55,55,55,.55) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(55,55,55,0) 0%,rgba(55,55,55,.55) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00373737', endColorstr='#373737',GradientType=0 ); /* IE6-9 */
+			width: 100%;
+		
 		}
 	}

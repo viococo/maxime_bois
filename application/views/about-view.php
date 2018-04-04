@@ -22,6 +22,7 @@
                     <span class="bold">Developper/Creative Tech :</span> @Mathieu Bremond, 
                     @Vladislav Bodin, @Corentin Fardeau, @Robin Bailleux <br><br>
                 </p>
+                <p class="h2">Work together to make design great again ✊🏼 </p>
 			</div>
 			
 		</div><span class="vmiddle"></span>
