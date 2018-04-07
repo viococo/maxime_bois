@@ -33,6 +33,7 @@ class Welcome extends CI_Controller {
 	public function project($id)
 	{
 		if(isset($id) && !empty($id) && is_numeric($id)){
+
 			$data['data']['project'] = $this->project->recup(array(
 				'table' => 'projects',
 				'id' => $id,
@@ -50,16 +51,13 @@ class Welcome extends CI_Controller {
 					],
 				],
 			));
-			
-			/* 
-			echo '<pre>';
-			var_dump($data['data']['project'][0]);
-			echo '</pre>'; 
-			*/
 
 			if (empty($data['data']['project']))
 				redirect();
 
+			$data['data']['prev'] = $this->project->prev($id);
+			$data['data']['next'] = $this->project->next($id);
+			
 			$data += [
 				'header' => [
 					'title' => 'Maxime Bois',
@@ -78,7 +76,8 @@ class Welcome extends CI_Controller {
 				'page' => 'project',
 				'footer' => false,			
 			];
-			 $this->load->view('template/t_standard', $data);
+			$this->load->view('template/t_standard', $data);
+			
 		} else {
 			redirect();
 		}

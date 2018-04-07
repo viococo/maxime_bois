@@ -17,8 +17,8 @@ if (isset($jQuery) && $jQuery)
 echo "\n";
 
 foreach ($header['libsjs'] as $file)
-    echo "<script src='assets/js/libs/".$file.".js'></script> \n";
+    echo "<script src='".base_url("assets/js/libs/" . $file . ".js" ) . "'></script> \n";
 foreach ($header['js'] as $file)
-    echo "<script src='assets/js/".$file.".js'></script> \n";
+    echo "<script src='".base_url("assets/js/" . $file . ".js" ) . "'></script> \n";
 
 $this->load->view('commons/eof');

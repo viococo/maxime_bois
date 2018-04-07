@@ -10,6 +10,8 @@ h1
 , h5
 , nav
 , .h2
+, ul.mobile 
+, .nav p
 {
 	font-family: 'Playfair Display', serif;
 }
@@ -37,6 +39,9 @@ body {
 img{max-width: 100%}
 
 /* MENU */
+.logo a {
+    display: inline-block;
+}
 	nav {
 		font-weight: 700;
 		font-size: 1.563rem;
@@ -64,10 +69,20 @@ img{max-width: 100%}
     , nav.lightRight {
 		color: #fff;
 	}
-	nav.lightLeft svg, nav.light svg{
+	nav.light.black
+    , nav.lightRight.black {
+		color: #000
+	}
+	nav.lightLeft.black svg
+	, nav.light.black svg{
+		fill:#000
+	}
+	nav.lightLeft svg
+	, nav.light svg{
 		fill: #fff;
 	}
-	nav li a{
+	
+	nav li a, ul.mobile li a{
 		padding: 10px 30px;
 		position: relative;
 	}
@@ -75,7 +90,7 @@ img{max-width: 100%}
 	, nav.lightRight li a:after{
 		background-color: #fff;
 	}
-	nav li a:after{
+	nav li a:after, ul.mobile li a:after{
 		content: '';
 		height: 1px;
 		width: 0;
@@ -85,7 +100,7 @@ img{max-width: 100%}
 		transition: .3s;
 		position: absolute;
 	}
-	nav li a:hover:after{
+	nav li a:hover:after, ul.mobile li a:hover:after{
 		left: 30px;
 		width: calc(100% - 60px);
 	}
@@ -130,7 +145,89 @@ img{max-width: 100%}
 			
 	#rs .line:nth-of-type(3) {
 		height: 100%;
-	}    
+	}
+	.mobile svg {
+		width: 55px;
+	}
+	.mobile{
+		padding: 5px
+	}
+	.mobile ul{
+		display: none
+	}
+	.burger, .burger:after, .burger:before{
+		display: inline-block;
+		background-color: black;
+		width: 22px;
+		height: 2px;
+	}
+	.lightLeft .burger, .lightLeft .burger:after, .lightLeft .burger:before
+	,.light .burger, .light .burger:after, .light .burger:before {
+		background-color: #fff;
+	}
+	.light.black .burger, .light.black .burger:after, .light.black .burger:before {
+		background-color: #000;
+	}	
+	.burger{
+		position: absolute;
+		top: 50%;
+		left: 0;
+	}
+	.burger:after, .burger:before{
+		content: '';
+		position: absolute;
+	}
+	.burger::before {
+		top: -6px;
+	}
+	
+	.burger::after {
+		top: 6px;
+	}
+	.burgerContainer{
+		cursor: pointer;
+		height: 22px;
+		position: fixed;
+		top: 25px;
+		right: 15px;
+		width: 22px;
+	}
+	.mobile.open + ul{
+		display: flex;
+		background-color: #fff;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		z-index: 100;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-size: 33px;
+	}
+	.open + ul li{
+		padding: 40px
+	}
+	.open .burger, .open .burger::before, .open .burger::after{
+		background-color: #000;
+	}
+	.open .burger:before{
+		transform: rotate(45deg);
+		top: 0px;
+	}
+	.open .burger:after{
+		transform: rotate(-45deg);
+		top: 0px;
+	}
+	.open .burger{
+		background-color: transparent;
+	}
+	nav.open svg{
+		fill: #000
+	}
+	.mobile + ul{
+		display: none;
+	}
+
 
 /* HOME SECTIONS */
 .h2{
@@ -212,7 +309,7 @@ img{max-width: 100%}
 	#fullpage.about .txtArea {
 		margin-left: -100px;
 		font-size: 16px;
-		padding: 0 100px;
+		padding: 0 110px;
 		position: relative;
 		width: calc(100% + 100px);
 		transition: .3s;
@@ -267,6 +364,11 @@ img{max-width: 100%}
 	.project span i {
 		transition: .3s;
 	}
+	main.project .txtHeader p > span {
+
+		margin-right: 30px;
+	
+	}
 	.project a{
 		position: absolute;
 		display: inline-block;
@@ -318,13 +420,15 @@ img{max-width: 100%}
 		color: #9e9e9e;
 		margin-bottom: 40px;
 	}
-	main.project p:first-of-type i{
+	 i{
 		display: inline-block;
-		margin-left:30px;
-		margin-right:10px;
 		font-family: 'si';
 		font-size: 18px;
 		font-style: normal;
+	}
+	main.project p:first-of-type i{
+		margin-right:10px;
+
 	}
 	main.project p:first-of-type span, .project i {
 		display: inline-block;
@@ -332,7 +436,6 @@ img{max-width: 100%}
 	}
 	main.project {
 		background-color: #fafafa;
-		padding-bottom: 100px;
 		text-align: center
 	}
 	main.project p i:first-of-type{
@@ -346,18 +449,23 @@ img{max-width: 100%}
 	}
 	main.project .txtHeader h2{
 		font-size: 30px;
-		max-width: 90%
+		max-width: 90%;
+		margin: 20px auto 20px auto;
 	}
 
+	main.project .txtHeader .col2 span{
+		display: inline-block;
+	}
 	main.project h2{
 		font-size: 45px;
 		width: 900px;
 		max-width: 80%;
-		margin: 0 auto;
+		margin: 80px auto 45px auto;
 		text-align: left;
 	}
 	main.project img{
-		width: 1000px
+		width: 1000px;
+	    max-width: 90%;
 	}
 	main.project .mobile img{
 		width: calc(1000px / 3)
@@ -375,14 +483,82 @@ img{max-width: 100%}
 	i.si.case:before{
 		content:"\e04b";
 	}
+	i.si.envelope:before{
+		content:"\e086";
+	}
+	.mobile{
+		display:none
+	}
+	.about .mail {
+		position: absolute;
+		bottom: 0;
+		width: 100px;
+		height: 100px;
+		background-color: #82b1ff;
+		left: 0;
+		color: #fff;
+		line-height: 100px;
+		text-align: center
+	}
 
+	.nav {
+		height: 220px;
+		margin-top: 100px;
+		position: relative;
+		overflow: hidden;
+	}
+	.nav::before{
+		content: '';
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		opacity: .5;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		transition: .3s
+	}
+	.nav:hover .bgi{
+		transform: scale(1.3)
+	}
+	.nav:hover:before{
+		opacity: .2;
+	}
+	.nav .bgi, .nav .block{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: .3s
+	}
+
+	main.project .nav p {
+		color: #fff;
+		display: inline-block;
+		font-size: 45px;
+		position: relative;
+		z-index: 2;
+		margin: 0;
+	}
+	
+	main.project .txtHeader img {
+		max-width: 100%;
+	}
 	@media screen and (max-width: 750px){
+		.desktop, .nav:first-of-type{
+			display: none
+		}
+		.mobile{
+			display: initial
+		}
 		h3{
 			font-size: 35px;
 			margin-left: 0;
 			top: 15px;
 		}
-		h2, .h2{
+		h2, .h2,main.project h2{
 			margin: 25px;
 			font-size: 26px;
 			line-height: 30px;
@@ -406,8 +582,8 @@ img{max-width: 100%}
 			max-height: none;
 		}
 
-		#fullpage.about .txtArea > div{
-			margin : 30px 0
+		.txtArea > div {
+			margin: 30px 0 100px 0;
 		}
 		#rs{
 			display: none;
@@ -420,11 +596,28 @@ img{max-width: 100%}
 			bottom: 0;
 			height: 200px;
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#373737+0,373737+100&0+0,1+100 */
-background: -moz-linear-gradient(top, rgba(55,55,55,0) 0%, rgba(55,55,55,.55) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(55,55,55,0) 0%,rgba(55,55,55,.55) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(55,55,55,0) 0%,rgba(55,55,55,.55) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00373737', endColorstr='#373737',GradientType=0 ); /* IE6-9 */
+			background: -moz-linear-gradient(top, rgba(55,55,55,0) 0%, rgba(55,55,55,.55) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(55,55,55,0) 0%,rgba(55,55,55,.55) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(55,55,55,0) 0%,rgba(55,55,55,.55) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00373737', endColorstr='#373737',GradientType=0 ); /* IE6-9 */
 			width: 100%;
 		
+		}
+		#fullpage.about .txtArea{
+			overflow: initial;
+		}
+		.about .mail{
+			line-height: 60px;
+			height: 60px;
+			width: 100%;
+		}
+		main.project .nav p{
+			font-size: 24px
+		}
+		main.project .nav {
+			height: 120px;
+		}
+		main.project h1{
+			font-size: 26px
 		}
 	}

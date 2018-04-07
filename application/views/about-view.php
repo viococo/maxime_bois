@@ -24,6 +24,10 @@
                 </p>
                 <p class="h2">Work together to make design great again ✊🏼 </p>
 			</div>
+            <a class="mail" href="mailto:hello@maximebois.com">
+			<i class="si envelope"></i>            
+                
+            </a>
 			
 		</div><span class="vmiddle"></span>
 		

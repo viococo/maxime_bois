@@ -4,14 +4,14 @@
 
 <header class="bgi" style="background-image: url(<?= base_url('assets/img/'.$p->image_header) ?>)">
 </header>
-<main class="project">
+<main class="project notHeader">
     <section class="txtHeader">
 		<h1><?= $p->name ?></h1>
 		<p>
-			<i class="si case"></i><span> <?= $p->speciality ?> </span>
-			<i class="si book"></i><span> <?= $p->context ?> </span>
-			<i class="si people"></i><span> <?php echo ($p->solo) ? 'solo' : 'Group' ?> </span>
-			<i class="si calendar"></i><span> <?= $p->year ?> </span>
+		<span><i class="si case"></i> <?= $p->speciality ?> </span>
+		<span><i class="si book"></i> <?= $p->context ?> </span>
+		<span><i class="si people"></i> <?php echo ($p->solo) ? 'solo' : 'Group' ?> </span>
+		<span><i class="si calendar"></i> <?= $p->year ?> </span>
 		</p>
 		<?php 
 		if(isset($p->goals) && !empty($p->goals))
@@ -54,6 +54,15 @@
 			</section>
 		<?php }
 	} ?>
+	<?php
+	$tab = [$prev, $next];
+	foreach ($tab as $t) { ?><div class="col2 nav">
+		<div class="bgi" style="background-image:url(<?= base_url('assets/img/'.$t->image) ?>)"></div>
+		<p class="middle">
+			<?= $t->name ?>
+		</p><span class="vmiddle"></span>
+		<a href="<?= base_url('Welcome/project/'.$t->id) ?>" class="block"></a>
+	</div><?php } ?>
 </main>
 <?php  
 echo '<pre>';
