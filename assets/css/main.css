@@ -90,6 +90,10 @@ img{max-width: 100%}
 	, nav.lightRight li a:after{
 		background-color: #fff;
 	}
+	nav.light.black li a:after
+	, nav.lightRight.black li a:after{
+		background-color: #000;
+	}
 	nav li a:after, ul.mobile li a:after{
 		content: '';
 		height: 1px;
@@ -358,18 +362,16 @@ img{max-width: 100%}
 		color: #fff;
 		transition:.3s
 	}
-	.project span:hover i {
+	/* .project span:hover i {
 		padding-left: 20px;
-	}
+	} */
 	.project span i {
 		transition: .3s;
 	}
-	main.project .txtHeader p > span {
-
+	main.project .txtHeader p:first-of-type > span {
 		margin-right: 30px;
-	
 	}
-	.project a{
+	#fullpage .project a{
 		position: absolute;
 		display: inline-block;
 		width: 100px;
@@ -465,10 +467,12 @@ img{max-width: 100%}
 	}
 	main.project img{
 		width: 1000px;
-	    max-width: 90%;
+	}
+	main.project .mobile{
+		display: block;
 	}
 	main.project .mobile img{
-		width: calc(1000px / 3)
+		width: 300px
 	}
 	i.si.people:before{
 		content:"\e001";
@@ -486,7 +490,6 @@ img{max-width: 100%}
 	i.si.envelope:before{
 		content:"\e086";
 		line-height: 100px;
-		
 	}
 	.mobile{
 		display:none
@@ -534,6 +537,10 @@ img{max-width: 100%}
 		transition: .3s
 	}
 
+	.nav .block {
+		z-index: 3;
+	}
+
 	main.project .nav p {
 		color: #fff;
 		display: inline-block;
@@ -545,6 +552,25 @@ img{max-width: 100%}
 	
 	main.project .txtHeader img {
 		max-width: 100%;
+	}
+	main.project section:not(.txtHeader) div{
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+	main.project .txtHeader a {
+		height: 50px;
+		width: 50px;
+		display: inline-block;
+		text-align: center;
+		line-height: 50px;
+		color: #fff;
+		background-color: #82b1ff;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+	main.project .txtHeader .col2 span{
+		position: relative;
 	}
 	@media screen and (max-width: 750px){
 		.desktop, .nav:first-of-type{
@@ -607,9 +633,11 @@ img{max-width: 100%}
 			overflow: initial;
 		}
 		.about .mail{
-			line-height: 60px;
 			height: 60px;
 			width: 100%;
+		}
+		i.si.envelope:before{
+			line-height: 60px;
 		}
 		main.project .nav p{
 			font-size: 24px

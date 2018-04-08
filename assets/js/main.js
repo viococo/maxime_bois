@@ -57,25 +57,27 @@ $('.burgerContainer').bind('click', function(){
 	$(window).load(function() {updateMenuColor();});
 
 	$(document).ready(function() {
-		$('#fullpage .img').fullpage({
-			navigation: true,
-			navigationTooltips: titres,
-			onLeave: function(index, nextIndex, direction){
-				var leavingSection = $(this);
-				var id = nextIndex - 1
-				var nextSection = $(project_txt[id])
-				
-				project_txt.fadeOut(300)
-	
-				setTimeout(function(){
-					if(id > 0)
-						$('.txtArea').addClass('project')
-					else
-						$('.txtArea').removeClass('project')
+		if($('#fullpage .img').fullpage){
+			$('#fullpage .img').fullpage({
+				navigation: true,
+				navigationTooltips: titres,
+				onLeave: function(index, nextIndex, direction){
+					var leavingSection = $(this);
+					var id = nextIndex - 1
+					var nextSection = $(project_txt[id])
 					
-					nextSection.fadeIn()
-				}, 300);			
-			}
-		});
+					project_txt.fadeOut(300)
+		
+					setTimeout(function(){
+						if(id > 0)
+							$('.txtArea').addClass('project')
+						else
+							$('.txtArea').removeClass('project')
+						
+						nextSection.fadeIn()
+					}, 300);			
+				}
+			});
+		}
 	
 	});

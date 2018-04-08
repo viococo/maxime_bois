@@ -1,4 +1,5 @@
 <?php 
+
 	$p = $project[0]['object'];
 ?>
 
@@ -28,7 +29,13 @@
 		if( isset($project[0]['join']['items']) && $project[0]['join']['items']){ 
 			foreach($project[0]['join']['items'] as $item) { ?><div class="col2">
 			<h2><?= $item['object']->title ?></h2>
-			<span><img src="<?= base_url('assets/img/'.$item['object']->image) ?>" alt="<?= $item['object']->title ?>"></span>
+			<span>
+				<img src="<?= base_url('assets/img/'.$item['object']->image) ?>" alt="<?= $item['object']->title ?>">
+				<a href="#">
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+					
+				</a>
+			</span>
 		</div><?php }} ?>
         
 	</section>
