@@ -465,7 +465,13 @@ img{max-width: 100%}
 	}
 	main.project img{
 		width: 1000px;
-	    max-width: 90%;
+		max-width: 90%;
+		-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+		-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+		box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+	}
+	main.project section > div {
+		margin: 40px 0;
 	}
 	main.project .mobile img{
 		width: calc(1000px / 3)
@@ -582,7 +588,7 @@ img{max-width: 100%}
 			max-height: none;
 		}
 
-		.txtArea > div {
+		#fullpage.about .txtArea > div  {
 			margin: 30px 0 100px 0;
 		}
 		#rs{
@@ -619,5 +625,8 @@ img{max-width: 100%}
 		}
 		main.project h1{
 			font-size: 26px
+		}
+		i.si.envelope::before{
+			line-height: 60px 
 		}
 	}
