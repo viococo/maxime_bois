@@ -42,13 +42,26 @@
 			<section>
 				<h2><?= $s['object']->name ?></h2>
 				<div <?php echo ($s['object']->format == 'mobile') ? 'class="formatmobile"' : '' ?>>
-				<?php  
-					foreach ($s['join']['content'] as $sJoin ) {
-						if($s['object']->format !== 'mobile') {
+				<?php  $bool = true;
+					foreach ($s['join']['content'] as $content ) {
+						
+						if($s['object']->format !== 'mobile' && !$bool) {
 							echo '</div><div>';
+						} else{
+							$bool = false;
 						}
 						?>
-						<span><img src="<?= base_url('assets/img/'.$sJoin['object']->file) ?>" alt=""></span>
+						<span class="wrapContent">
+							<?php
+							foreach($content['join']['background'] as $bg){
+								$obj = $bg['object'];
+								$url = base_url('assets/img/'.$obj->image);
+								$style = $obj->cote.':'.$obj->positionHorizontale.';'.$obj->hauteur.':'.$obj->positionVerticale;
+								echo "<span class='bgProject' style='$style'><img src='$url'></span>";
+							}
+							?>
+							<img class="content" src="<?= base_url('assets/img/'.$content['object']->file) ?>" alt="">
+						</span>
 				<?php } ?>
 				</div>
 			</section>

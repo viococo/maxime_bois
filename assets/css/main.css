@@ -465,7 +465,6 @@ img{max-width: 100%}
 	}
 	main.project img{
 		width: 1000px;
-		max-width: 90%;
 		-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
 		-moz-box-shadow:  0px 0px 15px 0px rgba(0,0,0,0.3);
 		box-shadow:  0px 0px 15px 0px rgba(0,0,0,0.3);
@@ -477,6 +476,25 @@ img{max-width: 100%}
 	}
 	main.project .formatmobile img{
 		width: calc(1000px / 3)
+	}
+	main.project .bgProject{
+
+		max-width: none;
+		position: absolute;
+	}
+	main.project .content{
+		z-index: 1;
+		position: relative;
+	}
+	main.project .bgProject img{
+		box-shadow: none;
+		width: auto;
+		max-width: none;
+	}
+	.wrapContent {
+		display: inline-block;
+		position: relative;
+		max-width: 90%;
 	}
 	.formatmobile span {
 		display: inline-block;
@@ -572,7 +590,7 @@ img{max-width: 100%}
 			top: 15px;
 		}
 		h2, .h2,main.project h2{
-			margin: 25px;
+			margin: 25px auto;
 			font-size: 26px;
 			line-height: 30px;
 		}

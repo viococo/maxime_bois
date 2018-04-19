@@ -38,14 +38,18 @@ class Welcome extends CI_Controller {
 				'table' => 'projects',
 				'id' => $id,
 				'join' => [
-					0 => [
+					[
 						'table' => 'items',
-					], 
-					1 => [
+					], [
 						'table' => 'sections',
 						'join' => [
-							0 => [
+							[
 								'table' => 'content',
+								'join' => [
+									[
+										'table' => 'background',
+									]
+								],
 							],
 						],
 					],
