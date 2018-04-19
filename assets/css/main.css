@@ -70,7 +70,7 @@ img{max-width: 100%}
 		color: #fff;
 	}
 	nav.light.black
-    , nav.lightRight.black {
+	, nav.lightRight.black {
 		color: #000
 	}
 	nav.lightLeft.black svg
@@ -466,15 +466,22 @@ img{max-width: 100%}
 	main.project img{
 		width: 1000px;
 		max-width: 90%;
-		-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-		-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-		box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+		-moz-box-shadow:  0px 0px 15px 0px rgba(0,0,0,0.3);
+		box-shadow:  0px 0px 15px 0px rgba(0,0,0,0.3);
 	}
 	main.project section > div {
-		margin: 40px 0;
+		margin: 40px auto;
+		max-width: 1010px;
+		position: relative;
 	}
-	main.project .mobile img{
+	main.project .formatmobile img{
 		width: calc(1000px / 3)
+	}
+	.formatmobile span {
+		display: inline-block;
+		margin: 15px 0;
+		vertical-align: middle;
 	}
 	i.si.people:before{
 		content:"\e001";

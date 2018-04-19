@@ -41,14 +41,14 @@
 		foreach( $j['sections'] as $s ){ ?>
 			<section>
 				<h2><?= $s['object']->name ?></h2>
-				<div <?php echo ($s['object']->format == 'mobile') ? 'class="mobile"' : '' ?>>
+				<div <?php echo ($s['object']->format == 'mobile') ? 'class="formatmobile"' : '' ?>>
 				<?php  
 					foreach ($s['join']['content'] as $sJoin ) {
 						if($s['object']->format !== 'mobile') {
 							echo '</div><div>';
 						}
 						?>
-						<img src="<?= base_url('assets/img/'.$sJoin['object']->file) ?>" alt="">
+						<span><img src="<?= base_url('assets/img/'.$sJoin['object']->file) ?>" alt=""></span>
 				<?php } ?>
 				</div>
 			</section>
