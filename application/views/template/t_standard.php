@@ -13,7 +13,7 @@ if (isset($footer) && $footer)
 echo "\n";
 
 if (isset($jQuery) && $jQuery)
-    echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
+    echo '<script src="' . base_url( "assets/js/libs/jquery.min.js" ) . '"></script>';
 echo "\n";
 
 foreach ($header['libsjs'] as $file)

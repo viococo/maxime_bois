@@ -48,16 +48,43 @@
 		foreach( $j['sections'] as $s ){ ?>
 			<section>
 				<h2><?= $s['object']->name ?></h2>
-				<div <?php echo ($s['object']->format == 'mobile') ? 'class="mobile"' : '' ?>>
-				<?php  
-					foreach ($s['join']['content'] as $sJoin ) {
-						if($s['object']->format !== 'mobile') {
+				<?php  $bool = true;
+					foreach ($s['join']['content'] as $content ) { ?>
+						
+						
+						<?php 
+						foreach($content['join']['background'] as $bg){
+							$obj = $bg['object'];
+							if ($obj->container === 'ext'){
+								$url = base_url('assets/img/'.$obj->image);
+								$style = $obj->cote.':'.$obj->positionHorizontale.';'.$obj->hauteur.':'.$obj->positionVerticale;
+								echo "<span class='bgProject' style='$style'><img src='$url'></span>";
+							}
+						} ?> 
+					<div <?php echo ($s['object']->format == 'mobile') ? 'class="formatmobile"' : '' ?>>
+						
+						<?php
+						if($s['object']->format !== 'mobile' && !$bool) {
 							echo '</div><div>';
+						} else{
+							$bool = false;
 						}
 						?>
-						<img src="<?= base_url('assets/img/'.$sJoin['object']->file) ?>" alt="">
+						<span class="wrapContent">
+							<?php
+							foreach($content['join']['background'] as $bg){
+								$obj = $bg['object'];
+								if ($obj->container === 'int'){
+									$url = base_url('assets/img/'.$obj->image);
+									$style = $obj->cote.':'.$obj->positionHorizontale.';'.$obj->hauteur.':'.$obj->positionVerticale;
+									echo "<span class='bgProject' style='$style'><img src='$url'></span>";
+								}
+							}
+							?>
+							<img class="content" src="<?= base_url('assets/img/'.$content['object']->file) ?>" alt="">
+						</span>
+						</div>
 				<?php } ?>
-				</div>
 			</section>
 		<?php }
 	} ?>
@@ -68,7 +95,7 @@
 		<p class="middle">
 			<?= $t->name ?>
 		</p><span class="vmiddle"></span>
-		<a href="<?= base_url('Welcome/project/'.$t->id) ?>" class="block"></a>
+		<a href="<?= base_url('/project/'.$t->id) ?>" class="block"></a>
 	</div><?php } ?>
 </main>
 <?php  

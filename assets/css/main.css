@@ -37,6 +37,7 @@ body {
 	font-weight: 600;
 }
 img{max-width: 100%}
+section{position: relative;}
 
 /* MENU */
 .logo a {
@@ -70,7 +71,7 @@ img{max-width: 100%}
 		color: #fff;
 	}
 	nav.light.black
-    , nav.lightRight.black {
+	, nav.lightRight.black {
 		color: #000
 	}
 	nav.lightLeft.black svg
@@ -460,19 +461,48 @@ img{max-width: 100%}
 	}
 	main.project h2{
 		font-size: 45px;
-		width: 900px;
+		width: 800px;
 		max-width: 80%;
 		margin: 80px auto 45px auto;
 		text-align: left;
 	}
 	main.project img{
 		width: 1000px;
+		-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+		-moz-box-shadow:  0px 0px 15px 0px rgba(0,0,0,0.3);
+		box-shadow:  0px 0px 15px 0px rgba(0,0,0,0.3);
 	}
-	main.project .mobile{
-		display: block;
+	main.project section > div {
+		margin: 40px auto;
+		max-width: 1010px;
+		position: relative;
 	}
-	main.project .mobile img{
-		width: 300px
+	main.project .formatmobile img{
+		width: calc(1000px / 3)
+	}
+	main.project .bgProject{
+
+		max-width: none;
+		position: absolute;
+	}
+	main.project .content{
+		z-index: 1;
+		position: relative;
+	}
+	main.project .bgProject img{
+		box-shadow: none;
+		width: auto;
+		max-width: none;
+	}
+	.wrapContent {
+		display: inline-block;
+		position: relative;
+		max-width: 90%;
+	}
+	.formatmobile span {
+		display: inline-block;
+		margin: 15px 0;
+		vertical-align: middle;
 	}
 	i.si.people:before{
 		content:"\e001";
@@ -585,7 +615,7 @@ img{max-width: 100%}
 			top: 15px;
 		}
 		h2, .h2,main.project h2{
-			margin: 25px;
+			margin: 25px auto;
 			font-size: 26px;
 			line-height: 30px;
 		}
@@ -608,7 +638,7 @@ img{max-width: 100%}
 			max-height: none;
 		}
 
-		.txtArea > div {
+		#fullpage.about .txtArea > div  {
 			margin: 30px 0 100px 0;
 		}
 		#rs{
@@ -647,5 +677,8 @@ img{max-width: 100%}
 		}
 		main.project h1{
 			font-size: 26px
+		}
+		i.si.envelope::before{
+			line-height: 60px 
 		}
 	}
