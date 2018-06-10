@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 03 juin 2018 à 19:16
+-- Généré le :  Dim 10 juin 2018 à 15:17
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `background` (
   `positionVerticale` varchar(20) DEFAULT NULL,
   `id_content` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `background`
@@ -49,7 +49,11 @@ INSERT INTO `background` (`id`, `image`, `container`, `cote`, `positionHorizonta
 (1, 'bg1.png', 'int', 'right', 'calc(100% - 110px)', 'bottom', '-310px', 1),
 (2, 'bg3.png', 'ext', 'left', '0', 'top', '75%', 2),
 (3, 'bg4.png', 'ext', 'right', '0', 'top', '15%', 5),
-(4, 'bg5.png', 'ext', 'left', '0', 'top', '50%', 5);
+(4, 'bg5.png', 'ext', 'left', '0', 'top', '50%', 5),
+(5, 'palm.png', 'ext', 'right', '0', 'top', '10%', 2),
+(6, 'chateau.png', 'ext', 'right', '0', 'bottom', '0', 14),
+(7, 'ioikljlkjlkj.png', 'ext', 'left', '0', 'top', '100%', 6),
+(8, 'billet-carl-fredicksen.png', 'int', 'right', '-150px', 'top', '-200px', 6);
 
 -- --------------------------------------------------------
 
@@ -75,7 +79,7 @@ INSERT INTO `content` (`id`, `id_sections`, `file`) VALUES
 (3, 2, 'section2-2.png'),
 (4, 2, 'section2-3.png'),
 (5, 3, 'section3-1.png'),
-(6, 4, 'section4-1.png'),
+(6, 4, 'https://www.youtube.com/watch?v=dWvZr91ErcQ'),
 (7, 5, 'section5-1.png'),
 (8, 5, 'section5-2.png'),
 (9, 5, 'section5-3.png'),
@@ -112,8 +116,8 @@ CREATE TABLE IF NOT EXISTS `items` (
 INSERT INTO `items` (`id`, `id_projects`, `title`, `image`) VALUES
 (1, 1, 'Persona', '1-persona.jpg'),
 (2, 1, 'Customer journey', '1-customer-journey.jpg'),
-(3, 2, 'Desktop wireframe', 'wireframe-d.png'),
-(4, 2, 'Mobile wireframe', 'wireframe-m.png');
+(3, 2, 'Desktop wireframe', 'wireframe-d.jpg'),
+(4, 2, 'Mobile wireframe', 'wireframe-m.jpg');
 
 -- --------------------------------------------------------
 
@@ -138,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `strengths` text NOT NULL,
   `result` text NOT NULL,
   `image_nav` varchar(255) NOT NULL,
+  `background` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
@@ -145,9 +150,9 @@ CREATE TABLE IF NOT EXISTS `projects` (
 -- Déchargement des données de la table `projects`
 --
 
-INSERT INTO `projects` (`id`, `image_home`, `texte_home`, `name`, `image_header`, `speciality`, `context`, `solo`, `year`, `goals`, `problematics`, `solutions`, `strengths`, `result`, `image_nav`) VALUES
-(1, 'obataimu_home.jpg', 'Obataimu is a clothing brand  mixing Japanese art and Indian  know-how.', 'Obataimu', 'obataimu_header.jpg', 'UX/UI Design', 'School project', 0, 2017, 'Redesign the website of the Obataimu brand.', 'Obataimu is a clothing brand mixing Japanese art and Indian know-how.  Clothes are made to measure, by a craftsman who designs all the pieces from scratch.  Obataimu has very strong values and transcribing these values was difficult.', 'The first one was to create an interactive online experience highlighting the main  value of Obtaimu : « Take the time to … ». The goal of this experiment was to bring out all the  everyday things that you never take the time to do. In the different actions presented,  Obataimu products will be of course highlighted and the user will be able to interact with.  The second one was to create a web page highlighting the other strong values of Obataimu.', '', '', ''),
-(2, 'disney_home.jpg', 'We participated to the Disneyland  Paris challenge to design their new  home page.', 'Disneyland Paris', 'disney-header.png', 'UX/UI Design', 'School project', 0, 2017, 'Disneyland Paris organized a challenge at ECV Digital School.\r\nThe purpose of the contest was to create a new home page to encourage users \r\nto purchase a Disney vacation.', 'Today Disneyland Paris have a homepage with very little information. \r\n25% of visitors stay less than 15 seconds on the website because they can’t find \r\nwhat they wants. During this project we had to structure and prioritize the information \r\nin order to make them want to discover Disney universe as soon as they arrive online. \r\nIn addition, the digital and marketing team of Disney wanted to highlight some information \r\nsuch as offers, annual pass and social networks.\r\nThe difficulty of this project was to take into account the customizable and flexible part \r\nof the website. In other words, according to the country or region in which we look the \r\nwebsite, we have to push different offers. So we had going to find a way to structure \r\nthe information that the marketing department could customize the site easily.', 'We decided to make a home page highlighting the Disney experience users\r\n could live at Disney. The goal was to create an immersive experience in the world of Disney \r\nas soon as he arrived on the website.', '- A reservation bar always accessible\r\n- Highlighting the experiences that the users could lives in Disney\r\n- Modular blocks for offers\r\n- Disney\'s social networks highlighting', 'We won the Disneyland Paris challenge. \r\nThe team was composed of @Lucie Pouderoux (UX), @Endza Djergaian (UX), \r\n@Benoit Delbique (UI), @Claire Bartoux (UI) and myself.', '');
+INSERT INTO `projects` (`id`, `image_home`, `texte_home`, `name`, `image_header`, `speciality`, `context`, `solo`, `year`, `goals`, `problematics`, `solutions`, `strengths`, `result`, `image_nav`, `background`) VALUES
+(1, 'obataimu_home.jpg', 'Obataimu is a clothing brand  mixing Japanese art and Indian  know-how.', 'Obataimu', 'obataimu_header.jpg', 'UX/UI Design', 'School project', 0, 2017, 'Redesign the website of the Obataimu brand.', 'Obataimu is a clothing brand mixing Japanese art and Indian know-how.  Clothes are made to measure, by a craftsman who designs all the pieces from scratch.  Obataimu has very strong values and transcribing these values was difficult.', 'The first one was to create an interactive online experience highlighting the main  value of Obtaimu : « Take the time to … ». The goal of this experiment was to bring out all the  everyday things that you never take the time to do. In the different actions presented,  Obataimu products will be of course highlighted and the user will be able to interact with.  The second one was to create a web page highlighting the other strong values of Obataimu.', '', '', '', ''),
+(2, 'disney_home.jpg', 'We participated to the Disneyland  Paris challenge to design their new  home page.', 'Disneyland Paris', 'disney-header.png', 'UX/UI Design', 'School project', 0, 2017, 'Disneyland Paris organized a challenge at ECV Digital School.\r\nThe purpose of the contest was to create a new home page to encourage users \r\nto purchase a Disney vacation.', 'Today Disneyland Paris have a homepage with very little information. \r\n25% of visitors stay less than 15 seconds on the website because they can’t find \r\nwhat they wants. During this project we had to structure and prioritize the information \r\nin order to make them want to discover Disney universe as soon as they arrive online. \r\nIn addition, the digital and marketing team of Disney wanted to highlight some information \r\nsuch as offers, annual pass and social networks.\r\nThe difficulty of this project was to take into account the customizable and flexible part \r\nof the website. In other words, according to the country or region in which we look the \r\nwebsite, we have to push different offers. So we had going to find a way to structure \r\nthe information that the marketing department could customize the site easily.', 'We decided to make a home page highlighting the Disney experience users\r\n could live at Disney. The goal was to create an immersive experience in the world of Disney \r\nas soon as he arrived on the website.', '- A reservation bar always accessible\r\n- Highlighting the experiences that the users could lives in Disney\r\n- Modular blocks for offers\r\n- Disney\'s social networks highlighting', 'We won the Disneyland Paris challenge. \r\nThe team was composed of @Lucie Pouderoux (UX), @Endza Djergaian (UX), \r\n@Benoit Delbique (UI), @Claire Bartoux (UI) and myself.', '', 'paillette.png');
 
 -- --------------------------------------------------------
 

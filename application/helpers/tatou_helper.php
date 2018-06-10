@@ -17,3 +17,33 @@ if (!function_exists('clean')){
         }
     }
 }
+
+if (!function_exists('pictureOrMovie')){
+	function pictureOrMovie($string, $class = ''){
+        if(preg_match('#https?:\/\/(www.)?[a-z]*.[a-z]{2,3}\/(.*)#', $string, $matches)){
+            $url = parse_url($string);
+            $domaine = explode('.', $url['host'])[1];
+            switch(explode('.', $url['host'])[1]){
+                case 'dailymotion':
+                    $codeVideo = array_reverse(explode('/', $url['path']))[0];
+                    $retour['type'] = 'video';
+                    $retour['contenu'] = '<iframe frameborder="0" src="//www.dailymotion.com/embed/video/'.$codeVideo.'" allowfullscreen=""></iframe>';
+                    break;
+                case 'youtube':
+                    $codeVideo = array_reverse(explode('=', $url['query']))[0];
+                    $retour['type'] = 'video';
+                    $retour['contenu'] = '<iframe src="https://www.youtube.com/embed/'.$codeVideo.'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+                    break;
+                default: 
+                    return false;
+            }
+            return $retour;
+        }else{
+            $retour['type'] = 'image';
+            $retour['contenu'] = '<img'.(strlen($class) > 0 ? " class='$class'":"").' src="'.base_url('assets/img/'.$string).'" />';
+            return $retour;
+        }
+
+        return false;
+    }
+}
